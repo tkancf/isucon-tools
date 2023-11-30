@@ -1,0 +1,29 @@
+#!/bin/bash
+# 他のスクリプトから読み込まれるための設定ファイル
+set -euC
+SCRIPT_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+# アプリケーション
+APP_SYS_NAME=isuports.service
+# 使用するアプリのディレクトリ(ビルドするディレクトリ)
+APP_DIR=/home/isucon/webapp/go/
+
+# Git管理してるrootディレクトリ
+GIT_DIR=/home/isucon
+
+# MySQL
+MYSQL_LOG=/var/lib/mysql/isucon12q-slow.log
+MYSQL_ANALYZE_RESULT=/tmp/mysql-analyze.sql
+MYSQL_CMD="mysql -uroot -proot isuports"
+MYSQL_SYS_NAME=mysql.service
+
+# nginx
+NGINX_LOG=/var/log/nginx/access.log
+NGINX_ANALYZE_RESULT=/tmp/nginx-analyze.txt
+NGINX_SYS_NAME=nginx.service
+
+# DiscordのWebhook URL
+DISCORD_HOOK=
+
+# kataribe
+KATARIBE_CONF=$SCRIPT_PATH/kataribe.toml
